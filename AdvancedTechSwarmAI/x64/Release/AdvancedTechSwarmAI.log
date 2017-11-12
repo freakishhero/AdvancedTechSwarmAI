@@ -1,0 +1,26 @@
+﻿Build started 12/11/2017 22:02:57.
+     1>Project "D:\AdvancedTechSwarmAI\AdvancedTechSwarmAI\AdvancedTechSwarmAI.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D NDEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /errorReport:prompt VBObject.cpp
+         VBObject.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\AdvancedTechSwarmAI\x64\Release\AdvancedTechSwarmAI.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\AdvancedTechSwarmAI\x64\Release\AdvancedTechSwarmAI.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\AdvancedTechSwarmAI\x64\Release\AdvancedTechSwarmAI.lib" /MACHINE:X64 x64\Release\Camera.obj
+         x64\Release\Direct3D.obj
+         x64\Release\GraphicsHandler.obj
+         x64\Release\InputHandler.obj
+         x64\Release\main.obj
+         x64\Release\Object.obj
+         x64\Release\Shader.obj
+         x64\Release\SystemHandler.obj
+         x64\Release\VBObject.obj
+         Generating code
+         1 of 350 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+           0 functions were new in current compilation
+           1 functions had inline decision re-evaluated but remain unchanged
+         Finished generating code
+         AdvancedTechSwarmAI.vcxproj -> D:\AdvancedTechSwarmAI\x64\Release\AdvancedTechSwarmAI.exe
+     1>Done Building Project "D:\AdvancedTechSwarmAI\AdvancedTechSwarmAI\AdvancedTechSwarmAI.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.18
