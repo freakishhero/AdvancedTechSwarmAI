@@ -83,15 +83,15 @@ void Application::Shutdown()
 void Application::Run()
 {
 	MSG msg;
-	bool done, result;
+	bool exit;
 
 
 	// Initialize the message structure.
 	ZeroMemory(&msg, sizeof(MSG));
 
 	// Loop until there is a quit message from the window or the user.
-	done = false;
-	while (!done)
+	exit = false;
+	while (!exit)
 	{
 		// Handle the windows messages.
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
@@ -103,15 +103,14 @@ void Application::Run()
 		// If windows signals to end the application then exit out.
 		if (msg.message == WM_QUIT)
 		{
-				done = true;
+				exit = true;
 		}
 		else
 		{
 			// Otherwise do the frame processing.
-			result = Frame();
-			if (!result)
+			if (!Tick())
 			{
-				done = true;
+				exit = true;
 			}
 		}
 
@@ -120,20 +119,28 @@ void Application::Run()
 	return;
 }
 
-bool Application::Frame()
+bool Application::Tick()
 {
-	bool result;
-
-
-	// Check if the user pressed escape and wants to exit the application.
+	//Check if the user pressed escape and wants to exit the application.
 	if (m_Input->IsKeyDown(VK_ESCAPE))
 	{
 		return false;
 	}
 
-	// Do the frame processing for the graphics object.
-	result = m_Graphics->Frame();
-	if (!result)
+	//Check if the user pressed escape and wants to exit the application.
+	if (m_Input->IsKeyDown(VK_UP))
+	{
+		m_Graphics->getCamera()->SetPosition(m_Graphics->getCamera()->GetPosition().x, m_Graphics->getCamera()->GetPosition().y, m_Graphics->getCamera()->GetPosition().z - 0.01);
+	}
+
+	
+	if (m_Input->IsKeyDown(VK_DOWN))
+	{
+		m_Graphics->getCamera()->SetPosition(m_Graphics->getCamera()->GetPosition().x, m_Graphics->getCamera()->GetPosition().y, m_Graphics->getCamera()->GetPosition().z + 0.01);
+	}
+
+	//Do the frame processing for the graphics object.
+	if (!m_Graphics->Tick())
 	{
 		return false;
 	}

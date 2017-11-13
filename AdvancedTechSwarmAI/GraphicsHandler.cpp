@@ -1,6 +1,5 @@
 #include "GraphicsHandler.h"
 
-
 GraphicsHandler::GraphicsHandler()
 {
 	m_Direct3D = nullptr;
@@ -118,13 +117,10 @@ void GraphicsHandler::Shutdown()
 }
 
 
-bool GraphicsHandler::Frame()
+bool GraphicsHandler::Tick()
 {
-	bool result;
-
 	// Render the graphics scene.
-	result = Render();
-	if (!result)
+	if (!Render())
 	{
 		return false;
 	}

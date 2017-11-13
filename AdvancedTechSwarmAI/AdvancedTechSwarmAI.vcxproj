@@ -151,6 +151,7 @@
     <ClCompile Include="GraphicsHandler.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="VBObject.cpp" />
@@ -161,8 +162,11 @@
     <ClInclude Include="GraphicsHandler.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneData.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="States.h" />
     <ClInclude Include="VBObject.h" />
   </ItemGroup>
   <ItemGroup>

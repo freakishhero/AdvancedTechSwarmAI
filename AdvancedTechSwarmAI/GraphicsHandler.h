@@ -20,9 +20,10 @@ public:
 	GraphicsHandler(const GraphicsHandler&);
 	~GraphicsHandler();
 
+	Camera* getCamera() { return m_Camera; }
 	bool Initialize(int, int, HWND);
 	void Shutdown();
-	bool Frame();
+	bool Tick();
 
 private:
 	bool Render();
