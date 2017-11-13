@@ -1,33 +1,34 @@
-#include "SystemHandler.h"
+#include "Application.h"
 #include <memory>
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 {
-	std::unique_ptr<SystemHandler> system;
-	bool result;
+	std::unique_ptr<Application> application;
 
-	//Create the system object.
-	system = std::make_unique<SystemHandler>();
+	//Create a pointer to the application
+	application = std::make_unique<Application>();
 	if (!system)
 	{
 		return 0;
 	}
 
-	// Initialize and run the system object.
-	result = system->Initialize();
-	if (result)
+	//Initialize the application
+	if (application->Initialize())
 	{
-		system->Run();
+		//Run the application if its initialised
+		application->Run();
 	}
 	else 
 	{
+		//Throw an error if the window fails
 		MessageBox(0, L"Window Initialization - Failed",
 			L"Error", MB_OK);
 		return 0;
 	}
 
-	// Shutdown and release the system object.
-	system->Shutdown();
-	system = nullptr;
+	//Shutdown the application and release the pointer.
+	application->Shutdown();
+	application = nullptr;
 	return 0;
 }
+
