@@ -4,7 +4,7 @@
 #include <dinput.h>
 #include "States.h"
 
-struct GameData
+struct SceneData
 {
 	float m_deltaTime; //deltatime - time between frames
 	State m_state; //current state of simulation
@@ -12,7 +12,7 @@ struct GameData
 	//Input
 	unsigned char* m_keyboardState;
 	unsigned char* m_previousKeyboardState;
-	//DIMOUSESTATE* m_mouseState;
+	DIMOUSESTATE* m_mouseState;
 };
 
 #endif

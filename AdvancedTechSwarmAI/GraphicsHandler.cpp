@@ -46,7 +46,7 @@ bool GraphicsHandler::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	}
 
 	// Set the initial position of the camera.
-	m_Camera->SetPosition(0.0f, 0.0f, -5.0f);
+	m_Camera->SetPosition(Vector3(0.0f, 0.0f, -5.0f));
 
 	// Create the model object.
 	m_vbo = new VBObject;
@@ -145,7 +145,7 @@ bool GraphicsHandler::Render()
 	m_Direct3D->GetProjectionMatrix(projectionMatrix);
 
 	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
-	m_vbo->Render(m_Direct3D->GetDeviceContext());
+	//m_vbo->Draw(m_Direct3D->GetDeviceContext());
 
 	// Render the model using the color shader.
 	result = m_shader->Render(m_Direct3D->GetDeviceContext(), m_vbo->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix);

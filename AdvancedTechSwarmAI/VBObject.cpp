@@ -1,4 +1,6 @@
 #include "VBObject.h"
+#include "DrawData.h"
+#include "SceneData.h"
 
 VBObject::VBObject()
 {
@@ -37,10 +39,14 @@ void VBObject::Shutdown()
 	return;
 }
 
-void VBObject::Render(ID3D11DeviceContext* deviceContext)
+void VBObject::Tick(std::unique_ptr<SceneData> _SD)
+{
+}
+
+void VBObject::Draw(std::unique_ptr<DrawData> _DD)
 {
 	// Put the vertex and index buffers on the graphics pipeline to prepare them for drawing.
-	RenderBuffers(deviceContext);
+	RenderBuffers(_DD->m_pd3dImmediateContext.get());
 
 	return;
 }
@@ -162,7 +168,7 @@ void VBObject::ShutdownBuffers()
 	return;
 }
 
-void VBObject::RenderBuffers(ID3D11DeviceContext* deviceContext)
+void VBObject::RenderBuffers(ID3D11DeviceContext* _deviceContext)
 {
 	unsigned int stride;
 	unsigned int offset;
@@ -173,13 +179,13 @@ void VBObject::RenderBuffers(ID3D11DeviceContext* deviceContext)
 	offset = 0;
 
 	// Set the vertex buffer to active in the input assembler so it can be rendered.
-	deviceContext->IASetVertexBuffers(0, 1, &m_vertexBuffer, &stride, &offset);
+	_deviceContext->IASetVertexBuffers(0, 1, &m_vertexBuffer, &stride, &offset);
 
 	// Set the index buffer to active in the input assembler so it can be rendered.
-	deviceContext->IASetIndexBuffer(m_indexBuffer, DXGI_FORMAT_R32_UINT, 0);
+	_deviceContext->IASetIndexBuffer(m_indexBuffer, DXGI_FORMAT_R32_UINT, 0);
 
 	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
-	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	_deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	return;
 }

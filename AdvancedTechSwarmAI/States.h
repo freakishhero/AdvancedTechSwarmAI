@@ -3,7 +3,7 @@
 
 enum State
 {
-	NULL = 0,
+	INVALID = 0,
 	MAIN_MENU = 1,
 	START = 2,
 	PAUSE = 3,

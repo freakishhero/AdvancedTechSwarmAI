@@ -5,9 +5,13 @@
 #include <dinput.h>
 #include <memory>
 #include <vector>
+#include <d3d11.h>
 
 class GameObject;
 class SceneData;
+class DrawData;
+class VBObject;
+class Camera;
 
 /*class GameObject2D;
 class Camera;
@@ -20,15 +24,25 @@ class Light;*/
 class Scene
 {
 public:
-	Scene();
+	Scene(ID3D11Device* _pd3dDevice, HWND _hWnd, HINSTANCE _hInstance);
 	virtual ~Scene();
 	bool Tick();
 	void Draw();
 
-protected:
-	SceneData* m_SceneData;
-	//std::vector<GameObject> m_GameObjects;
 private:
+	std::unique_ptr<Camera> m_camera;
+	std::unique_ptr<SceneData> m_SceneData; //Scene data;
+	std::unique_ptr<DrawData> m_DrawData;
+	DWORD m_playTime; //Run time
+	VBObject* m_vbo;
+	std::vector<GameObject*> m_GameObjects;
+	/*IDirectInput8* m_pDirectInput;
+	IDirectInputDevice8* m_pKeyboard;
+	IDirectInputDevice8* m_pMouse;
+	unsigned char m_keyboardState[256];
+	unsigned char m_previousKeyboardState[256];
+	DIMOUSESTATE m_mouseState;*/
+	HWND m_hWnd;
 
 };
 

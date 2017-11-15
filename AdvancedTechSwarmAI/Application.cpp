@@ -130,13 +130,13 @@ bool Application::Tick()
 	//Check if the user pressed escape and wants to exit the application.
 	if (m_Input->IsKeyDown(VK_UP))
 	{
-		m_Graphics->getCamera()->SetPosition(m_Graphics->getCamera()->GetPosition().x, m_Graphics->getCamera()->GetPosition().y, m_Graphics->getCamera()->GetPosition().z - 0.01);
+		m_Graphics->getCamera()->SetPosition(Vector3(m_Graphics->getCamera()->GetPosition().x, m_Graphics->getCamera()->GetPosition().y, m_Graphics->getCamera()->GetPosition().z - 0.01));
 	}
 
 	
 	if (m_Input->IsKeyDown(VK_DOWN))
 	{
-		m_Graphics->getCamera()->SetPosition(m_Graphics->getCamera()->GetPosition().x, m_Graphics->getCamera()->GetPosition().y, m_Graphics->getCamera()->GetPosition().z + 0.01);
+		m_Graphics->getCamera()->SetPosition(Vector3(m_Graphics->getCamera()->GetPosition().x, m_Graphics->getCamera()->GetPosition().y, m_Graphics->getCamera()->GetPosition().z + 0.01));
 	}
 
 	//Do the frame processing for the graphics object.

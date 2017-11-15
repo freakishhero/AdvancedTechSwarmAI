@@ -1,15 +1,21 @@
-﻿Build started 13/11/2017 20:36:57.
-     1>Project "D:\bop\AdvancedTechSwarmAI\AdvancedTechSwarmAI\AdvancedTechSwarmAI.vcxproj" on node 2 (Build target(s)).
+﻿Build started 15/11/2017 20:41:34.
+     1>Project "D:\AdvancedTechSwarmAI\AdvancedTechSwarmAI\AdvancedTechSwarmAI.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D NDEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /errorReport:prompt Application.cpp Scene.cpp
-         Application.cpp
-     1>Application.cpp(133): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>Application.cpp(139): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D NDEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /errorReport:prompt Scene.cpp
          Scene.cpp
          C:\Program Files (x86)\Windows Kits\8.1\Include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+     1>d:\advancedtechswarmai\advancedtechswarmai\GameObject.h(8): warning C4099: 'SceneData': type name first seen using 'class' now seen using 'struct'
+         d:\advancedtechswarmai\advancedtechswarmai\Scene.h(11): note: see declaration of 'SceneData'
+     1>d:\advancedtechswarmai\advancedtechswarmai\GameObject.h(9): warning C4099: 'DrawData': type name first seen using 'class' now seen using 'struct'
+         d:\advancedtechswarmai\advancedtechswarmai\Scene.h(12): note: see declaration of 'DrawData'
+     1>d:\advancedtechswarmai\advancedtechswarmai\SceneData.h(8): warning C4099: 'SceneData': type name first seen using 'class' now seen using 'struct'
+         d:\advancedtechswarmai\advancedtechswarmai\SceneData.h(7): note: see declaration of 'SceneData'
+     1>d:\advancedtechswarmai\advancedtechswarmai\DrawData.h(11): warning C4099: 'DrawData': type name first seen using 'class' now seen using 'struct'
+         d:\advancedtechswarmai\advancedtechswarmai\DrawData.h(10): note: see declaration of 'DrawData'
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\bop\AdvancedTechSwarmAI\x64\Release\AdvancedTechSwarmAI.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\bop\AdvancedTechSwarmAI\x64\Release\AdvancedTechSwarmAI.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\bop\AdvancedTechSwarmAI\x64\Release\AdvancedTechSwarmAI.lib" /MACHINE:X64 x64\Release\Camera.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\AdvancedTechSwarmAI\x64\Release\AdvancedTechSwarmAI.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\AdvancedTechSwarmAI\x64\Release\AdvancedTechSwarmAI.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\AdvancedTechSwarmAI\x64\Release\AdvancedTechSwarmAI.lib" /MACHINE:X64 x64\Release\Camera.obj
          x64\Release\Direct3D.obj
+         x64\Release\GameObject.obj
          x64\Release\GraphicsHandler.obj
          x64\Release\InputHandler.obj
          x64\Release\main.obj
@@ -18,13 +24,13 @@
          x64\Release\Application.obj
          x64\Release\VBObject.obj
          Generating code
-         3 of 353 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
-           0 functions were new in current compilation
-           1 functions had inline decision re-evaluated but remain unchanged
+         69 of 438 functions (15.8%) were compiled, the rest were copied from previous compilation.
+           18 functions were new in current compilation
+           13 functions had inline decision re-evaluated but remain unchanged
          Finished generating code
-         AdvancedTechSwarmAI.vcxproj -> D:\bop\AdvancedTechSwarmAI\x64\Release\AdvancedTechSwarmAI.exe
-     1>Done Building Project "D:\bop\AdvancedTechSwarmAI\AdvancedTechSwarmAI\AdvancedTechSwarmAI.vcxproj" (Build target(s)).
+         AdvancedTechSwarmAI.vcxproj -> D:\AdvancedTechSwarmAI\x64\Release\AdvancedTechSwarmAI.exe
+     1>Done Building Project "D:\AdvancedTechSwarmAI\AdvancedTechSwarmAI\AdvancedTechSwarmAI.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.66
+Time Elapsed 00:00:01.56
