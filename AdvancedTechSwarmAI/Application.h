@@ -6,6 +6,7 @@
 #include <memory>
 #include "InputHandler.h"
 #include "GraphicsHandler.h"
+#include "Scene.h"
 
 class Application
 {
@@ -31,6 +32,7 @@ private:
 
 	std::unique_ptr<InputHandler> m_Input;
 	std::unique_ptr<GraphicsHandler> m_Graphics;
+	std::unique_ptr<Scene> m_Scene;
 };
 static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 static Application* applicationHandle = 0;

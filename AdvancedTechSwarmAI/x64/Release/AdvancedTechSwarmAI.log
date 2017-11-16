@@ -1,13 +1,9 @@
-﻿Build started 15/11/2017 20:41:34.
+﻿Build started 16/11/2017 21:22:42.
      1>Project "D:\AdvancedTechSwarmAI\AdvancedTechSwarmAI\AdvancedTechSwarmAI.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D NDEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /errorReport:prompt Scene.cpp
          Scene.cpp
          C:\Program Files (x86)\Windows Kits\8.1\Include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-     1>d:\advancedtechswarmai\advancedtechswarmai\GameObject.h(8): warning C4099: 'SceneData': type name first seen using 'class' now seen using 'struct'
-         d:\advancedtechswarmai\advancedtechswarmai\Scene.h(11): note: see declaration of 'SceneData'
-     1>d:\advancedtechswarmai\advancedtechswarmai\GameObject.h(9): warning C4099: 'DrawData': type name first seen using 'class' now seen using 'struct'
-         d:\advancedtechswarmai\advancedtechswarmai\Scene.h(12): note: see declaration of 'DrawData'
      1>d:\advancedtechswarmai\advancedtechswarmai\SceneData.h(8): warning C4099: 'SceneData': type name first seen using 'class' now seen using 'struct'
          d:\advancedtechswarmai\advancedtechswarmai\SceneData.h(7): note: see declaration of 'SceneData'
      1>d:\advancedtechswarmai\advancedtechswarmai\DrawData.h(11): warning C4099: 'DrawData': type name first seen using 'class' now seen using 'struct'
@@ -24,13 +20,13 @@
          x64\Release\Application.obj
          x64\Release\VBObject.obj
          Generating code
-         69 of 438 functions (15.8%) were compiled, the rest were copied from previous compilation.
-           18 functions were new in current compilation
-           13 functions had inline decision re-evaluated but remain unchanged
+         5 of 482 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+           0 functions were new in current compilation
+           0 functions had inline decision re-evaluated but remain unchanged
          Finished generating code
          AdvancedTechSwarmAI.vcxproj -> D:\AdvancedTechSwarmAI\x64\Release\AdvancedTechSwarmAI.exe
      1>Done Building Project "D:\AdvancedTechSwarmAI\AdvancedTechSwarmAI\AdvancedTechSwarmAI.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.56
+Time Elapsed 00:00:01.54

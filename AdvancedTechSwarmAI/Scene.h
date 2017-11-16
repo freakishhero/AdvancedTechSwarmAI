@@ -27,21 +27,21 @@ public:
 	Scene(ID3D11Device* _pd3dDevice, HWND _hWnd, HINSTANCE _hInstance);
 	virtual ~Scene();
 	bool Tick();
-	void Draw();
+	bool Draw(DrawData* _DD);
 
 private:
 	std::unique_ptr<Camera> m_camera;
-	std::unique_ptr<SceneData> m_SceneData; //Scene data;
-	std::unique_ptr<DrawData> m_DrawData;
+	SceneData* m_SceneData; //Scene data;
+	DrawData* m_DrawData;
 	DWORD m_playTime; //Run time
 	VBObject* m_vbo;
 	std::vector<GameObject*> m_GameObjects;
-	/*IDirectInput8* m_pDirectInput;
+	IDirectInput8* m_pDirectInput;
 	IDirectInputDevice8* m_pKeyboard;
 	IDirectInputDevice8* m_pMouse;
 	unsigned char m_keyboardState[256];
 	unsigned char m_previousKeyboardState[256];
-	DIMOUSESTATE m_mouseState;*/
+	DIMOUSESTATE m_mouseState;
 	HWND m_hWnd;
 
 };

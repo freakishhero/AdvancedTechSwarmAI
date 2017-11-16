@@ -3,8 +3,6 @@
 GraphicsHandler::GraphicsHandler()
 {
 	m_Direct3D = nullptr;
-	m_Camera = nullptr;
-	m_vbo = nullptr;
 	m_shader = nullptr;
 }
 
@@ -16,15 +14,22 @@ GraphicsHandler::GraphicsHandler(const GraphicsHandler& other)
 
 GraphicsHandler::~GraphicsHandler()
 {
+	delete m_Direct3D;
+	m_Direct3D = nullptr;
 }
 
+
+Direct3D* GraphicsHandler::getDirect3D()
+{
+	return m_Direct3D;
+}
 
 bool GraphicsHandler::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 {
 	bool result;
 
 	// Create the Direct3D object.
-	m_Direct3D = std::make_unique<Direct3D>();
+	m_Direct3D = new Direct3D();
 	if (!m_Direct3D)
 	{
 		return false;
@@ -38,25 +43,9 @@ bool GraphicsHandler::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		return false;
 	}
 
-	// Create the camera object.
-	m_Camera = new Camera;
-	if (!m_Camera)
-	{
-		return false;
-	}
-
 	// Set the initial position of the camera.
-	m_Camera->SetPosition(Vector3(0.0f, 0.0f, -5.0f));
+	//m_Camera->SetPosition(Vector3(0.0f, 0.0f, -5.0f));
 
-	// Create the model object.
-	m_vbo = new VBObject;
-	if (!m_vbo)
-	{
-		return false;
-	}
-
-	// Initialize the model object.
-	result = m_vbo->Initialize(m_Direct3D->GetDevice());
 	if (!result)
 	{
 		MessageBox(hwnd, L"Could not initialize object.", L"Error", MB_OK);
@@ -92,21 +81,6 @@ void GraphicsHandler::Shutdown()
 		m_shader = nullptr;
 	}
 
-	// Release the model object.
-	if (m_vbo)
-	{
-		m_vbo->Shutdown();
-		delete m_vbo;
-		m_vbo = nullptr;
-	}
-
-	// Release the camera object.
-	if (m_Camera)
-	{
-		delete m_Camera;
-		m_Camera = nullptr;
-	}
-
 	// Release the Direct3D object.
 	if (m_Direct3D)
 	{
@@ -137,18 +111,15 @@ bool GraphicsHandler::Render()
 	m_Direct3D->BeginScene(0.5f, 0.8f, 0.8f, 1.0f);
 
 	// Generate the view matrix based on the camera's position.
-	m_Camera->Render();
+	//m_Camera->Render();
 
 	// Get the world, view, and projection matrices from the camera and d3d objects.
 	m_Direct3D->GetWorldMatrix(worldMatrix);
-	m_Camera->GetViewMatrix(viewMatrix);
 	m_Direct3D->GetProjectionMatrix(projectionMatrix);
 
-	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
-	//m_vbo->Draw(m_Direct3D->GetDeviceContext());
-
 	// Render the model using the color shader.
-	result = m_shader->Render(m_Direct3D->GetDeviceContext(), m_vbo->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix);
+	result = m_shader->Render(m_Direct3D->GetDeviceContext(), 3, worldMatrix, viewMatrix, projectionMatrix);
+
 	if (!result)
 	{
 		return false;

@@ -20,16 +20,16 @@ public:
 	GraphicsHandler(const GraphicsHandler&);
 	~GraphicsHandler();
 
-	Camera* getCamera() { return m_Camera; }
+	Direct3D* getDirect3D();
 	bool Initialize(int, int, HWND);
 	void Shutdown();
 	bool Tick();
 
 private:
 	bool Render();
-	std::unique_ptr<Direct3D> m_Direct3D;
-	Camera* m_Camera;
-	VBObject* m_vbo;
+	Direct3D* m_Direct3D;
+	//Camera* m_Camera;
+	//VBObject* m_vbo;
 	Shader* m_shader;
 
 };

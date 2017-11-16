@@ -29,7 +29,7 @@ bool Direct3D::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hw
 	IDXGIFactory* factory;
 	IDXGIAdapter* adapter;
 	IDXGIOutput* adapterOutput;
-	unsigned int numModes, i, numerator, denominator;
+	unsigned int numModes, i, numerator = 0, denominator = 0;
 	unsigned long long stringLength;
 	DXGI_MODE_DESC* displayModeList;
 	DXGI_ADAPTER_DESC adapterDesc;

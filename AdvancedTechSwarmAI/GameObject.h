@@ -16,8 +16,8 @@ public:
 	GameObject();
 	~GameObject();
 
-	virtual void Tick(std::unique_ptr<SceneData> _SD);
-	virtual void Draw(std::unique_ptr<DrawData> _DD) = 0;
+	virtual void Tick(SceneData* _SD);
+	virtual void Draw(DrawData* _DD) = 0;
 
 	//Getters
 	Vector3 GetPosition() { return m_position; }

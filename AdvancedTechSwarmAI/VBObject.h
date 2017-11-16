@@ -7,15 +7,15 @@
 #include <directxmath.h>
 using namespace DirectX;
 
-class VBObject : GameObject
+class VBObject : public GameObject
 {
 public:
 	VBObject();
 	VBObject(const VBObject&);
 	~VBObject();
 
-	virtual void Tick(std::unique_ptr<SceneData> _SD) override;
-	virtual void Draw(std::unique_ptr<DrawData> _DD) override;
+	virtual void Tick(SceneData* _SD) override;
+	virtual void Draw(DrawData* _DD) override;
 
 	bool Initialize(ID3D11Device*);
 	void Shutdown();

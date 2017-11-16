@@ -1,7 +1,12 @@
 #include "Camera.h"
+#include <DirectXMath.h>
+
+
 
 Camera::Camera()
 {
+	XMMATRIX viewMatrix;
+	m_viewMatrix = viewMatrix;
 }
 
 Camera::Camera(const Camera& other)
@@ -13,21 +18,16 @@ Camera::~Camera()
 {
 }
 
-void Camera::Tick(std::unique_ptr<SceneData> _SD)
+void Camera::Tick(SceneData* _SD)
 {
 }
 
-void Camera::Draw(std::unique_ptr<DrawData> _DD)
-{
-}
-
-void Camera::Render()
+void Camera::Draw(DrawData* _DD)
 {
 	XMFLOAT3 up, position, lookAt;
 	XMVECTOR upVector, positionVector, lookAtVector;
 	float yaw, pitch, roll;
 	XMMATRIX rotationMatrix;
-
 
 	// Setup the vector that points upwards.
 	up.x = 0.0f;
@@ -70,13 +70,11 @@ void Camera::Render()
 
 	// Finally create the view matrix from the three updated vectors.
 	m_viewMatrix = XMMatrixLookAtLH(positionVector, lookAtVector, upVector);
-
-	return;
 }
 
-void Camera::GetViewMatrix(XMMATRIX& viewMatrix)
+void Camera::Render()
 {
-	viewMatrix = m_viewMatrix;
+	
 	return;
 }
 

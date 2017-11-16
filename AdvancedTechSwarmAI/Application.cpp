@@ -57,6 +57,14 @@ bool Application::Initialize()
 		return false;
 	}
 
+
+	m_Scene = std::make_unique<Scene>(m_Graphics->getDirect3D()->GetDevice(), m_hwnd, m_hinstance);
+	if (!m_Scene)
+	{
+		MessageBox(0, L"Scene failed to initialize.",
+			L"Error", MB_OK);
+		return false;
+	}
 	return true;
 }
 
@@ -121,26 +129,27 @@ void Application::Run()
 
 bool Application::Tick()
 {
-	//Check if the user pressed escape and wants to exit the application.
-	if (m_Input->IsKeyDown(VK_ESCAPE))
-	{
-		return false;
-	}
+
 
 	//Check if the user pressed escape and wants to exit the application.
 	if (m_Input->IsKeyDown(VK_UP))
 	{
-		m_Graphics->getCamera()->SetPosition(Vector3(m_Graphics->getCamera()->GetPosition().x, m_Graphics->getCamera()->GetPosition().y, m_Graphics->getCamera()->GetPosition().z - 0.01));
+//		m_Graphics->getCamera()->SetPosition(Vector3(m_Graphics->getCamera()->GetPosition().x, m_Graphics->getCamera()->GetPosition().y, m_Graphics->getCamera()->GetPosition().z - 0.01));
 	}
 
 	
 	if (m_Input->IsKeyDown(VK_DOWN))
 	{
-		m_Graphics->getCamera()->SetPosition(Vector3(m_Graphics->getCamera()->GetPosition().x, m_Graphics->getCamera()->GetPosition().y, m_Graphics->getCamera()->GetPosition().z + 0.01));
+	//	m_Graphics->getCamera()->SetPosition(Vector3(m_Graphics->getCamera()->GetPosition().x, m_Graphics->getCamera()->GetPosition().y, m_Graphics->getCamera()->GetPosition().z + 0.01));
 	}
 
 	//Do the frame processing for the graphics object.
 	if (!m_Graphics->Tick())
+	{
+		return false;
+	}
+
+	if (!m_Scene->Tick())
 	{
 		return false;
 	}

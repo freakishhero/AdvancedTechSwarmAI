@@ -39,15 +39,15 @@ void VBObject::Shutdown()
 	return;
 }
 
-void VBObject::Tick(std::unique_ptr<SceneData> _SD)
+void VBObject::Tick(SceneData* _SD)
 {
 }
 
-void VBObject::Draw(std::unique_ptr<DrawData> _DD)
+void VBObject::Draw(DrawData* _DD)
 {
 	// Put the vertex and index buffers on the graphics pipeline to prepare them for drawing.
-	RenderBuffers(_DD->m_pd3dImmediateContext.get());
-
+	if(_DD->m_pd3dImmediateContext)
+	RenderBuffers(_DD->m_pd3dImmediateContext);
 	return;
 }
 
@@ -65,10 +65,10 @@ bool VBObject::InitializeBuffers(ID3D11Device* device)
 	HRESULT result;
 
 	// Set the number of vertices in the vertex array.
-	m_vertexCount = 4;
+	m_vertexCount = 3;
 
 	// Set the number of indices in the index array.
-	m_indexCount = 4;
+	m_indexCount = 3;
 
 	// Create the vertex array.
 	vertices = new VertexType[m_vertexCount];

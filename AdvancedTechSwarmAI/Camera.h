@@ -15,8 +15,8 @@ public:
 	Camera(const Camera&);
 	~Camera();
 
-	virtual void Tick(std::unique_ptr<SceneData> _SD);
-	virtual void Draw(std::unique_ptr<DrawData> _DD) override;
+	virtual void Tick(SceneData* _SD);
+	virtual void Draw(DrawData* _DD) override;
 	void Render();
 	void GetViewMatrix(XMMATRIX&);
 
